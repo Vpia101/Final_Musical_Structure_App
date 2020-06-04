@@ -23,7 +23,7 @@ public class AlbumActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.albums_list_item);
+        setContentView(R.layout.albums_activity);
 
         ArrayList<Album> albums = new ArrayList<Album>();
         albums.add(new Album("Backstreet Boys", "Backstreet Boys", R.drawable.album_cover_backstreetboys));
