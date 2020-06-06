@@ -23,6 +23,10 @@
         <activity android:name=".activities.AlbumActivity"
             android:label="Album List"/>
 
+        <activity android:name=".activities.NowPlayingActivity"
+            android:label="Now Playing"/>
+
+
     </application>
 
 </manifest>

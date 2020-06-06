@@ -27,6 +27,9 @@ public class AlbumActivity extends AppCompatActivity {
 
         ArrayList<Album> albums = new ArrayList<Album>();
         albums.add(new Album("Backstreet Boys", "Backstreet Boys", R.drawable.album_cover_backstreetboys));
+        albums.add(new Album("Baby one more time", "Britney Spears", R.drawable.album_cover_britneyspears));
+        albums.add(new Album("Ricky Martin", "Ricky Martin", R.drawable.album_cover_rickymartin));
+
 
         AlbumAdapter albumAdapter = new AlbumAdapter(this, albums); //Puts the values into the AlbumAdapter class
         GridView gridView = (GridView) findViewById(R.id.albumGridview);

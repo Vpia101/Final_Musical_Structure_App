@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
             // The code in this method will be executed when the numbers category is clicked on.
             @Override
             public void onClick(View view) {
-                // Create a new intent to open the {@link NumbersActivity}
+                // Create a new intent to open the {@link TrackListActivity}
                 Intent tracksIntent = new Intent(MainActivity.this, TrackListActivity.class);
 
                 // Start the new activity
