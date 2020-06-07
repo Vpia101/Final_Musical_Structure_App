@@ -2,11 +2,10 @@ package com.example.musicalstructureapp.activities;
 
 import android.content.Intent;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ListView;
 import android.os.Bundle;
-import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AdapterView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -17,7 +16,6 @@ import com.example.musicalstructureapp.data.Tracks;
 import java.util.ArrayList;
 
 public class TrackListActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,26 +34,14 @@ public class TrackListActivity extends AppCompatActivity {
 
         ListView listView = (ListView) findViewById(R.id.list);
         listView.setAdapter(trackAdapter); //Displays the data in the TrackAdapter
-
-        addListenerOnListView();
-    }
-
-    public void addListenerOnListView() {
-
-        // Find the View that shows the tracks list category
-        ListView list = findViewById(R.id.list);
-
-        // Set a click listener on that View
-        list.setOnItemClickListener(new Adapterview.OnItemClickListener() {
-            // The code in this method will be executed when the numbers category is clicked on.
+        listView.setOnItemClickListener(new OnItemClickListener() {
             @Override
-            public void onClick(View view) {
-                // Create a new intent to open the {@link NumbersActivity}
-                Intent tracksIntent = new Intent(com.example.musicalstructureapp.activities.TrackListActivity.this, com.example.musicalstructureapp.activities.NowPlayingActivity.class);
-
-                // Start the new activity
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent tracksIntent = new Intent(TrackListActivity.this, NowPlayingActivity.class);
                 startActivity(tracksIntent);
             }
         });
+
     }
+
 }
