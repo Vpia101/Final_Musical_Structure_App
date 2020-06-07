@@ -1,39 +1,31 @@
 package com.example.musicalstructureapp.activities;
 
 import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.musicalstructureapp.R;
-import android.widget.Button;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import com.example.musicalstructureapp.data.Tracks;
+import com.example.musicalstructureapp.adapter.TrackAdapter;
+import android.widget.AdapterView.OnItemClickListener;
+
 
 
 public class NowPlayingActivity extends AppCompatActivity {
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.now_playing_item);
-        TextView songName = (TextView) findViewById(R.id.songName);
-        TextView artistName = (TextView) findViewById(R.id.artistName);
-        ImageView albumImage = (ImageView) findViewById(R.id.albumImage1);
+    final ArrayAdapter trackAdapter = new TrackAdapter(this, track); //Puts the values into the TrackAdapter class
+    ListView listView = (ListView) findViewById(R.id.list);
+        listView.setAdapter(trackAdapter); //Displays the data in the TrackAdapter
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener()
 
-        Intent intentThatStartedThisActivity = getIntent();
-
-        //Receives the data that was passed through the intent
-        if (intentThatStartedThisActivity != null) {
-            if (intentThatStartedThisActivity.hasExtra("Title")) {
-                String receiveSongTitle = intentThatStartedThisActivity.getStringExtra("Title");
-                String receiveArtistName = intentThatStartedThisActivity.getStringExtra("Artist");
-                int receiveAlbumImageArt = intentThatStartedThisActivity.getIntExtra("AlbumImage", R.id.nowPlayingImage);
-
-                songName.setText(receiveSongTitle);
-                artistName.setText(receiveArtistName);
-                albumImage.setImageResource(receiveAlbumImageArt);
-            }
-        }
+    {
+        @Override
+        public void onItemClick (AdapterView < ? > parent, View view,int position, long id){
+        Tracks song = track.get(position);
+        Intent tracksIntent = new Intent(TrackListActivity.this, NowPlayingActivity.class);
+        tracksIntent.putExtra("songName", song.getArtist_name());
+        tracksIntent.putExtra("artistName", song.getTrack_title());
+        startActivity(tracksIntent);
+    }
     }
 }
-
-
