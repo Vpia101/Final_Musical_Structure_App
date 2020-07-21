@@ -11,6 +11,7 @@ import android.widget.GridView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.musicalstructureapp.R;
 import com.example.musicalstructureapp.adapter.AlbumAdapter;
 import com.example.musicalstructureapp.data.Album;

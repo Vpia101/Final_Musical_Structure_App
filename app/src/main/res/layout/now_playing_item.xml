@@ -24,7 +24,7 @@
                 android:scaleType="centerCrop"
                 android:adjustViewBounds="true"
                 android:background="#333"
-                android:contentDescription="@string/current_track_s_image" />
+                android:src="@drawable/play_icon" />
         </androidx.cardview.widget.CardView>
 
         <LinearLayout

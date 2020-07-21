@@ -21,7 +21,7 @@ public class TrackListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tracks_list_item);
 
-        ArrayList<Tracks> track = new ArrayList<Tracks>();
+        final ArrayList<Tracks> track = new ArrayList<Tracks>();
         track.add(new Tracks("Quit playing games with my heart", "Backstreet Boys", R.drawable.cover_quitplaying));
         track.add(new Tracks("Baby one more time", "Britney Spears", R.drawable.cover_babyonemoretime));
         track.add(new Tracks("Livin La Vida Loca", "Ricky Martin", R.drawable.cover_livinlavida));
@@ -37,7 +37,10 @@ public class TrackListActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Tracks item = track.get(i);
                 Intent tracksIntent = new Intent(TrackListActivity.this, NowPlayingActivity.class);
+                tracksIntent.putExtra("Artist", item.getArtist_name());
+                tracksIntent.putExtra("Title", item.getTrack_title());
                 startActivity(tracksIntent);
             }
         });
